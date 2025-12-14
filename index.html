@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> CGPA Calculator</h1>
+            <p class="subtitle">Calculate your Cumulative Grade Point Average easily</p>
+        </header>
+
+        <main class="main-content">
+            <section class="calculator-container">
+                <h2><i class="fas fa-edit"></i> Course Details</h2>
+                
+                <div class="courses-list" id="coursesList">
+                    <!-- Course items will be added here dynamically -->
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-primary" id="addCourseBtn">
+                        <i class="fas fa-plus-circle"></i> Add Course
+                    </button>
+                    <button class="btn-success" id="calculateBtn">
+                        <i class="fas fa-calculator"></i> Calculate CGPA
+                    </button>
+                    <button class="btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button class="btn-about" id="aboutBtn">
+                        <i class="fas fa-info-circle"></i> About CGPA
+                    </button>
+                </div>
+            </section>
+
+            <section class="result-container">
+                <h2><i class="fas fa-chart-line"></i> Your Results</h2>
+                
+                <div class="result-box">
+                    <div class="result-label">Your CGPA is:</div>
+                    <div class="result-value" id="cgpaResult">0.00</div>
+                    <div class="result-grade" id="gradeResult">-</div>
+                    
+                    <div class="result-details">
+                        <p><i class="fas fa-book"></i> Total Courses: <span id="totalCourses">0</span></p>
+                        <p><i class="fas fa-star"></i> Total Grade Points: <span id="totalGradePoints">0</span></p>
+                        <p><i class="fas fa-weight"></i> Total Credit Units: <span id="totalCredits">0</span></p>
+                    </div>
+                </div>
+
+                <div class="grade-scale">
+                    <h3><i class="fas fa-graduation-cap"></i> Grade Scale</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Grade</th>
+                                <th>Points</th>
+                                <th>Percentage</th>
+                                <th>Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td>4.0 - 5.0</td>
+                                <td>70 - 100%</td>
+                                <td>Excellent</td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td>3.0 - 3.99</td>
+                                <td>60 - 69%</td>
+                                <td>Very Good</td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td>2.0 - 2.99</td>
+                                <td>50 - 59%</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td>1.0 - 1.99</td>
+                                <td>45 - 49%</td>
+                                <td>Pass</td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>0.0</td>
+                                <td>0 - 44%</td>
+                                <td>Fail</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>CGPA Calculator &copy; <span id="currentYear"></span> | Designed for Students</p>
+            <p class="footer-note">This tool helps you track and calculate your academic performance</p>
+        </footer>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-info-circle"></i> About CGPA Calculator</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>What is CGPA?</h3>
+                    <p>CGPA (Cumulative Grade Point Average) is a numerical representation of a student's overall academic performance across all completed courses. It is calculated by dividing the total grade points earned by the total credit hours attempted.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>How CGPA is Calculated</h3>
+                    <p>The CGPA calculation follows these steps:</p>
+                    <ul>
+                        <li>For each course, multiply the grade point by the credit units</li>
+                        <li>Sum all the grade points × credit units values</li>
+                        <li>Sum all the credit units</li>
+                        <li>Divide the total grade points by the total credit units</li>
+                    </ul>
+                    <p><strong>Formula:</strong> CGPA = Σ(Grade Point × Credit Units) / Σ(Credit Units)</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>How This Calculator Helps Students</h3>
+                    <ul>
+                        <li><strong>Academic Planning:</strong> Estimate future performance by calculating different scenarios</li>
+                        <li><strong>Progress Tracking:</strong> Monitor your academic performance throughout your studies</li>
+                        <li><strong>Goal Setting:</strong> Determine what grades you need to achieve your target CGPA</li>
+                        <li><strong>Time Management:</strong> Identify which courses require more attention based on credit weight</li>
+                        <li><strong>Easy Experimentation:</strong> Try "what-if" scenarios without manual calculations</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Tips for Academic Success</h3>
+                    <ul>
+                        <li>Regularly calculate your CGPA to stay on track with your academic goals</li>
+                        <li>Focus more on courses with higher credit units as they impact your CGPA more</li>
+                        <li>Use this calculator to plan what grades you need in future courses</li>
+                        <li>Remember that consistent performance is key to maintaining a good CGPA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
